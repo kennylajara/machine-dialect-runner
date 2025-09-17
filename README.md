@@ -12,6 +12,8 @@ A FastAPI server that provides an HTTP API for executing [Machine Dialect™](ht
 
 ## Installation
 
+### Option 1: Local Installation
+
 1. Clone the repository:
 ```bash
 git clone https://github.com/kennylajara/machine-dialect-runner.git
@@ -23,12 +25,42 @@ cd machine-dialect-runner
 pip install -r requirements.txt
 ```
 
+### Option 2: Docker
+
+1. Clone the repository:
+```bash
+git clone https://github.com/kennylajara/machine-dialect-runner.git
+cd machine-dialect-runner
+```
+
+2. Run with Docker Compose:
+```bash
+docker-compose up --build
+```
+
+3. Or build and run manually:
+```bash
+docker build -t machine-dialect-runner .
+docker run -p 8000:8000 machine-dialect-runner
+```
+
 ## Usage
 
 ### Starting the Server
 
+#### Option 1: Direct Python execution
 ```bash
 python main.py
+```
+
+#### Option 2: Using the startup script
+```bash
+./start.sh
+```
+
+#### Option 3: With Uvicorn (development)
+```bash
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 The server will start on `http://localhost:8000` by default.
